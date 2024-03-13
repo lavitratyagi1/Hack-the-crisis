@@ -1,0 +1,65 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(90deg, rgb(9, 5, 65) 5%, rgb(26, 26, 137) 49%, rgb(89, 110, 214) 100%);
+    color: black;
+  }
+  
+  .form-container {
+    padding: 20px;
+    background: white;
+    box-shadow: 10px 10px 20px rgba(2, 0, 7, 0.4);
+    border:2px solid  rgb(1, 0, 7);
+    border-radius: 10%;
+  }
+  
+  .animated-border-form {
+    border: 4px solid transparent;
+    border-image-slice: 1;
+    animation: border-animation 5s infinite linear;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* @keyframes border-animation {
+    0% {
+      border-image-source: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+    }
+    100% {
+      border-image-source: linear-gradient(60deg, #6fba82, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b);
+      transform: rotate(360deg);
+    }
+  } */
+  
+  .input-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .input-group label {
+    margin-bottom: 5px;
+  }
+  
+  .input-group input, .input-group textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #5073b8;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  button:hover {
+    background-color: #405c9b;
+  }

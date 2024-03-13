@@ -3,11 +3,11 @@ import mysql.connector
 
 app = Flask(__name__)
 
-# Connect to MySQL database
+# C1onnect to MySQL database
 db = mysql.connector.connect(
     host="localhost",
-    user="root",
-    password="Pranav@02",
+    user="lavitra",
+    password="1234567890",
     database="lost_and_found"
 )
 
@@ -63,7 +63,7 @@ def report_found():
 
         return redirect(url_for('found_items'))
 
-    return render_template('report_found.html')
+    return render_template('found_items.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
