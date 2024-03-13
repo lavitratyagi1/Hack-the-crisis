@@ -1,0 +1,32 @@
+<!-- report.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report a Lost Item</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home Page</a></li>
+            <li><a href="{{ url_for('report') }}">Report a Lost Item</a></li>
+            <li><a href="{{ url_for('found_items') }}">Found Items</a></li>
+            <li><a href="{{ url_for('lost_items') }}">Lost Items</a></li>
+            <li><a href="{{ url_for('report_found') }}">Report a Found Item</a></li>
+        </ul>
+    </nav>
+    <h1>Report a Lost Item</h1>
+    <form action="{{ url_for('report') }}" method="POST">
+        <label for="item_name">Item Name:</label><br>
+        <input type="text" id="item_name" name="item_name" required><br>
+        <label for="description">Description:</label><br>
+        <textarea id="description" name="description" required></textarea><br>
+        <label for="location">Location:</label><br>
+        <input type="text" id="location" name="location" required><br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

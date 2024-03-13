@@ -1,0 +1,24 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost and Found Platform</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home Page</a></li>
+            <li><a href="{{ url_for('report') }}">Report a Lost Item</a></li>
+            <li><a href="{{ url_for('found_items') }}">Found Items</a></li>
+            <li><a href="{{ url_for('lost_items') }}">Lost Items</a></li>
+            <li><a href="{{ url_for('report_found') }}">Report a Found Item</a></li>
+        </ul>
+    </nav>
+    <h1>Welcome to the Lost and Found Platform</h1>
+    <p>This platform helps you report lost items and search for found items within the campus community.</p>
+</body>
+</html>
