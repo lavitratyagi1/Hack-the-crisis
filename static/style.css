@@ -1,12 +1,26 @@
 body{
     /* background: linear-gradient(145deg, rgba(2,0,36,1) 5%, rgba(9,9,121,1) 49%, rgb(50, 72, 179) 100%);
  */
- /* background: linear-gradient(90deg, rgba(2,0,36,1) 5%, rgba(9,9,121,1) 49%, rgba(75,97,212,1) 100%); */
- background-image: url("bg.jpeg") ;
+ /* background-image: linear-gradient(90deg, rgba(2,0,36,1) 5%, rgba(9,9,121,1) 49%, rgba(75,97,212,1) 100%); */
+ background-image: url("bg4.jpg") ;
  background-repeat: no-repeat;
  background-size: cover;
  
 
+}
+.heading{
+    color: white;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 100px;
+    font-weight: 200;
+
+}
+.name{
+    margin-left: 0px;
+}
+h5{
+    color:white;
+    font-size: 20px;
 }
 .hero_section{
     background-image: url(bg.jpeg);
@@ -16,7 +30,10 @@ body{
     justify-content: center;
     align-items: flex-end;
 }
-
+.card-img-top{
+    height: 150px;
+    
+}
 .hero_msg{
     background-color:white ;
     color: black;
@@ -35,7 +52,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: linear-gradient(45deg, #1a1a1a, #333);
+    background: linear-gradient(45deg, #9ca1a4, #026c7f);
     color: white;
     padding: 10px 20px;
 }
@@ -49,6 +66,11 @@ nav {
     color: white;
     text-decoration: none;
     margin-left: 20px;
+    font-size: larger;
+}
+.nav-links a:hover{
+    color: #ecdc4c;
+    text-decoration: dashed;
 }
 
 .nav-links input[type="search"] {
@@ -73,20 +95,27 @@ main {
 }
 
 .card {
-    background: linear-gradient(45deg, #1a1a1a, #333);
-    width: 200px; /* Adjust based on your preference */
-    height: 300px; /* Adjust based on your preference */
+/*
+* Created with https://www.css-gradient.com
+* Gradient link: https://www.css-gradient.com/?c1=d08521&c2=5bc535&gt=l&gd=dtl
+*/
+background: #D08521;
+background: linear-gradient(135deg, #D08521, #5BC535);
+    width: 350px; /* Adjust based on your preference */
+    height: 500px; /* Adjust based on your preference */
     padding: 20px;
     margin: 20px 0;
-    border-radius: 10px; /* Increase border radius for a smoother look */
+    border-radius: 30px; /* Increase border radius for a smoother look */
     box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Add shadow for depth */
     text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+   
     align-items: center;
     cursor: pointer;
     transition: transform 0.3s ease;
+    margin-left: 200px;
+    margin-right: 100px;
 }
 
 .card:hover {

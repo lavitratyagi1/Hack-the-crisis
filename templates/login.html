@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta viewport="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+<style>
+    body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #000; /* Black background */
+    color: #fff; /* White text color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+}
+h1{
+    text-align: center;
+    margin-right: 30px;
+}
+.login-container {
+    background-image: linear-gradient(45deg,rgb(36, 36, 135),rgb(22, 12, 77),rgb(2, 2, 36)); /* Dark background for the container */
+    width: 280px;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.5); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.login-form h2 {
+    color: rgb(250, 250, 252); /* Blue color for the heading */
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    margin: 0;
+    border-radius: 5px;
+    border: 1px solid #070707;
+    background-color: #939090; /* Darker background for inputs */
+    color: #ddd; /* Lighter text color for inputs */
+    transition: background-color 0.3s;
+}
+
+.input-group input:hover {
+    background-color: #444; /* Slightly lighter on hover */
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #00f; /* Blue background for the button */
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0094ff; /* Lighter blue on hover */
+}
+</style>
+<body>
+    <div class="heading">
+        <H1>Welcome to FindMeHub </H1>
+        <h2>A Student driven Lost and Found WebApp</h2>
+    </div>
+    <div class="login-container">
+        <form class="login-form" method="POST" action="/login">
+            <h2>Login</h2>
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</body>
+</html>

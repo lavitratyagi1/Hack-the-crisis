@@ -3,7 +3,7 @@ import mysql.connector
 
 app = Flask(__name__)
 
-# C1onnect to MySQL database
+# Connect to MySQL database
 db = mysql.connector.connect(
     host="localhost",
     user="lavitra",
@@ -17,53 +17,76 @@ cursor = db.cursor()
 # Create a table for lost items if it doesn't exist
 cursor.execute("CREATE TABLE IF NOT EXISTS lost_items (id INT AUTO_INCREMENT PRIMARY KEY, item_name VARCHAR(255), description TEXT, location VARCHAR(255), date_found DATE)")
 
+# Create a table for found items if it doesn't exist
+cursor.execute("CREATE TABLE IF NOT EXISTS found_items (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), Addmission VARCHAR(255), category VARCHAR(255), colour VARCHAR(255), location VARCHAR(255), description TEXT)")
+
 @app.route('/')
 def index():
     return render_template('index.html')
 
-@app.route('/report', methods=['GET', 'POST'])
-def report():
-    if request.method == 'POST':
-        item_name = request.form['item_name']
-        description = request.form['description']
-        location = request.form['location']
+@app.route('/report_lost', methods=['GET', 'POST'])
+def report_lost():
 
-        # Insert the lost item into the database
-        cursor.execute("INSERT INTO lost_items (item_name, description, location) VALUES (%s, %s, %s)", (item_name, description, location))
+    return render_template('lost_items.html')
+
+@app.route('/submit_lost_item', methods=['POST'])
+def submit_lost_item():
+    if request.method == 'POST':
+        name = request.form['name']
+        Addmission = request.form['Addmission']
+        category = request.form['category']
+        colour = request.form['colour']
+        location = request.form['location']
+        description = request.form['description']
+
+        # Insert the found item into the database
+        cursor.execute("INSERT INTO lost_items (name, Addmission, category, colour, location, description) VALUES (%s, %s, %s, %s, %s, %s)", (name, Addmission, category, colour, location, description))
         db.commit()
 
         return redirect(url_for('index'))
 
-    return render_template('report.html')
-
-@app.route('/found_items')
-def found_items():
-    # Fetch found items from the database
-    cursor.execute("SELECT * FROM lost_items")
-    found_items = cursor.fetchall()
-    return render_template('found_items.html', found_items=found_items)
-
-@app.route('/lost_items')
-def lost_items():
-    # Fetch lost items from the database
-    cursor.execute("SELECT * FROM lost_items")
-    lost_items = cursor.fetchall()
-    return render_template('lost_items.html', lost_items=lost_items)
 
 @app.route('/report_found', methods=['GET', 'POST'])
 def report_found():
-    if request.method == 'POST':
-        item_name = request.form['item_name']
-        description = request.form['description']
-        location = request.form['location']
-
-        # Insert the found item into the database
-        cursor.execute("INSERT INTO lost_items (item_name, description, location) VALUES (%s, %s, %s)", (item_name, description, location))
-        db.commit()
-
-        return redirect(url_for('found_items'))
 
     return render_template('found_items.html')
+
+@app.route('/submit_found_item', methods=['POST'])
+def submit_found_item():
+    if request.method == 'POST':
+        name = request.form['name']
+        Addmission = request.form['Addmission']
+        category = request.form['category']
+        colour = request.form['colour']
+        location = request.form['location']
+        description = request.form['description']
+
+        # Insert the found item into the database
+        cursor.execute("INSERT INTO found_items (name, Addmission, category, colour, location, description) VALUES (%s, %s, %s, %s, %s, %s)", (name, Addmission, category, colour, location, description))
+        db.commit()
+
+        return redirect(url_for('index'))
+
+@app.route('/login_page', methods=['POST', 'GET'])
+def login_page():
+    return render_template('login.html')
+    
+
+@app.route('/login', methods=['POST','GET'])
+def login():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+
+        # Check if the username and password exist in the database
+        cursor.execute("SELECT * FROM users WHERE username = %s AND password = %s", (username, password))
+        user = cursor.fetchone()
+
+        if user:
+            # If the user exists, redirect to some page (e.g., dashboard)
+            return redirect(url_for('index'))
+        else:
+            return redirect(url_for('/login'))  # Change 'dashboard' to the appropriate route
 
 if __name__ == '__main__':
     app.run(debug=True)
